@@ -1,5 +1,7 @@
 #ifndef PID_H
 #define PID_H
+#include <iostream>
+#include <vector>
 
 class PID {
  public:
@@ -31,6 +33,8 @@ class PID {
    */
   double TotalError();
 
+  double Control();
+
  private:
   /**
    * PID Errors
@@ -38,13 +42,19 @@ class PID {
   double p_error;
   double i_error;
   double d_error;
+  /**
+   * Params for derivative error
+   */
+  double previous_cte;
+  double dt;
 
   /**
    * PID Coefficients
    */ 
-  double Kp;
-  double Ki;
-  double Kd;
+  std::vector<double> K;
+  std::vector<double> dp;
+  int count;
+  bool previously_improved;
 };
 
 #endif  // PID_H
