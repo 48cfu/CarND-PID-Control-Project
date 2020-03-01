@@ -39,7 +39,7 @@ int main() {
    */
   double Kp = 0.14;
   double Ki = 0.001;
-  double Kd = 4.8;
+  double Kd = 5.0;
   pid.Init(Kp, Ki, Kd);
 
   h.onMessage([&pid](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length, 
