@@ -37,9 +37,9 @@ int main() {
   /**
    * Initialize the pid variable.
    */
-  double Kp = 0.1;
+  double Kp = 0.14;
   double Ki = 0.001;
-  double Kd = 3;
+  double Kd = 4.8;
   pid.Init(Kp, Ki, Kd);
 
   h.onMessage([&pid](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length, 
@@ -58,7 +58,7 @@ int main() {
         if (event == "telemetry") {
           // j[1] is the data JSON object
           double cte = std::stod(j[1]["cte"].get<string>());
-          double speed = std::stod(j[1]["speed"].get<string>());
+          //double speed = std::stod(j[1]["speed"].get<string>());
           double angle = std::stod(j[1]["steering_angle"].get<string>());
           
           /**

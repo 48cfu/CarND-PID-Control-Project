@@ -2,6 +2,8 @@
 #define PID_H
 #include <iostream>
 #include <vector>
+#include <chrono>
+#include <ctime>
 
 class PID {
  public:
@@ -52,9 +54,8 @@ class PID {
    * PID Coefficients
    */ 
   std::vector<double> K;
-  std::vector<double> dp;
-  int count;
-  bool previously_improved;
+
+  std::chrono::time_point<std::chrono::system_clock> start;
 };
 
 #endif  // PID_H
